@@ -1,0 +1,16 @@
+name: Open deep link
+appId: com.winghouchan.maestroiosdeeplinkmcve
+tags:
+  - subflow
+---
+- openLink:
+    link: com.winghouchan.maestroiosdeeplinkmcve://foo
+
+- runFlow:
+    when:
+      visible: ".*Open in.*"
+    commands:
+      - tapOn:
+          text: Open
+
+- assertVisible: /foo
