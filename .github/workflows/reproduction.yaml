@@ -9,11 +9,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ios-version: ["18.6", "26.0", "26.1"]
+        ios-version: ["26.0", "26.1"]
         maestro-version: [2.0.10]
-        xcode-version: [16.4, 26.0.1, 26.1.1]
+        xcode-version: [26.0.1, 26.1.1]
     name: "test(maestro: ${{ matrix.maestro-version }}, ios: ${{ matrix.ios-version }}, xcode: ${{ matrix.xcode-version }})"
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
       - name: 👀 Checkout
         uses: actions/checkout@v4
@@ -40,7 +40,7 @@ jobs:
         id: launch-ios-simulator
         uses: ./.github/actions/launch-ios-simulator
         with:
-          model: "iPhone 16"
+          model: "iPhone 17"
           os: "iOS"
           os-version: ${{ matrix.ios-version }}
 
